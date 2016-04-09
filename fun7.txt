@@ -1,0 +1,18 @@
+int fun7(int *a, int b) {
+	if (a == NULL)
+		return -1;
+	int ret;
+	if (*a > b) {
+		ret = fun7(*(a + 4), b);
+		ret = ret * 2;
+	}
+	else 
+	if (*a == b) {
+		ret = 0;	
+	}
+	else {
+		int ret = fun7(*(a + 8), b);
+		ret = ret * 2 + 1;
+	}
+	return ret;
+}

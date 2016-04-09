@@ -1,0 +1,14 @@
+int fun(int a) {
+	int ret = 0;
+	switch(a) {
+		case 0 : ret = 121; break;
+		case 1 : ret = -277; break;
+		case 2 : ret = 81; break;
+		case 3 : ret = -65; break;
+		case 4 : ret = 168; break;
+		case 5 : ret = -128; break;
+		case 6 : ret = 351; break;
+		case 7 : ret = -128; break;
+	}
+	return ret;
+}
