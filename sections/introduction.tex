@@ -1,0 +1,17 @@
+\section{introduction}
+	\subsection{Overview}
+	A "binary bomb" is a program provided to students as an object code file. When run, it prompts the user to type in 6 different strings. If any of these is incorrect, the bomb ``explodes,'' printing an error message and logging the event on a grading server. Students must ``defuse'' their own unique bomb by disassembling and reverse engineering the program to determine what the 6 strings should be. The lab teaches students to understand assembly language, and also forces them to learn how to use a debugger. It's also great fun. A legendary lab among the CMU undergrads.
+	\subsection{Preparation}
+	在拆除炸弹之前，首先进行一些前期准备：
+	\begin{itemize}
+		\item	通过putty登陆服务器，发现我本次Lab的实验文件：\textbf{bomb51.tar}
+		\item	执行\textbf{tar xvf bomb51.tar}解压文件，得到四个文件：bomb bomb.c ID README
+		\item	其中 ID README 分别是学生的编号和这次的说明文档。
+		
+				于是查看\textbf{bomb.c}, 发现其头文件声明如下：
+				\lstinputlisting{sources/header.txt}
+				
+				phase.h包含了这次炸弹的全部关卡，而它并没有在Lab中给出。因此我们只能从可执行文件\textbf{bomb}下手
+		\item	执行\textbf{objdump -d bomb > bomb.txt}， 反编译可执行文件，将汇编代码输出到\textbf{bomb.txt}
+		\item	反编译之后的代码非常长，不过在仔细研究之后，发现其中有六个函数\textbf{<phase$\_$1..6>}，分别对应六个关卡。因此，这次Lab的关键就是破解这六个关卡对应的汇编代码，分析这六个函数的功能。
+	\end{itemize}

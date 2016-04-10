@@ -1,0 +1,8 @@
+if(num[0]!=1) explode_bomb();
+int b = 1;
+while(b <= 5) {
+	a = b + 1;
+	if(num[b - 1] * a != num[b])
+		explode_bomb();
+	b++;
+}

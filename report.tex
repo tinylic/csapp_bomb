@@ -1,0 +1,103 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass{report}
+%\usepackage{xeCJK}
+
+%\setCJKmainfont{微软雅黑}
+\title{Mini Project Report}
+\author{Li Chen}
+\date{\today}
+	
+% big font for sections
+\usepackage{sectsty}
+\usepackage{setspace}
+\sectionfont{\LARGE}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{5}
+\usepackage[colorlinks,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black
+]{hyperref}
+\lstset{
+    columns=fixed,       
+    numbers=left,                                        % 在左侧显示行号
+    frame=none,                                          % 不显示背景边框
+    backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+    keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+    numberstyle=\footnotesize\color[RGB]{0,0,0},           % 设定行号格式
+    commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+    stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+    showstringspaces=false,                              % 不显示字符串中的空格
+    language=c,                                        % 设置语言
+    morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
+    reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
+    typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
+    dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
+    char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
+    void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
+    const,false,private,this,while,constexpr,float,protected,thread_local,
+    const_cast,for,public,throw,std, CHECK_THROW, CHECK_EQUAL, vector},
+}
+
+% \begin{comment} ... \end{comment{}
+%\usepackage{verbatim}
+
+\setlength{\parskip}{0pt}
+
+\makeatletter
+\renewcommand{\paragraph}{
+  \@startsection{paragraph}{4}
+    {\z@}{1.25ex \@plus 1ex \@minus .2ex}{-1em}
+      {\normalfont\normalsize\bfseries}
+      }
+      \makeatother
+
+\usepackage[
+	sorting=none,
+	minbibnames=8,
+	maxbibnames=9,
+	block=space,
+	backend=biber
+]{biblatex}
+\bibliography{publications}
+
+
+\usepackage{parskip}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\newpage
+
+\maketitle
+
+\newpage
+
+\renewcommand{\contentsname}{Table of Content}
+\tableofcontents
+
+
+%=================
+\begin{spacing}{1.5}
+\include{sections/introduction}
+\include{sections/phase-1}
+\include{sections/phase-2}
+\include{sections/phase-3}
+\include{sections/phase-4}
+\include{sections/phase-5}
+\include{sections/phase-6}
+\include{sections/secret-phase}
+\input{sections/conclusion}
+\end{spacing}
+
+%=================
+
+\end{document}
