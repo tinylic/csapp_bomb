@@ -1,0 +1,6 @@
+int fun4(int x) {
+	int ret = 1;
+	if (x <= 0)
+		return ret;
+	return ret * 7;
+}
