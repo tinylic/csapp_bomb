@@ -1,30 +1,38 @@
 \section{phase$\_$4}
+	\begin{itemize}
+	
+	\item
 	第四关的汇编代码如下：
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_4.png}
-	\end{figure}
+		
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_4.asm}
 	
 	首先，它和phase$\_$3一样，调用了sscanf函数。和上一个函数的处理方法一样，运用gdb，发现sscanf的参数是\textbf{"$\%$d“}，即读入一个整数n，存放在\textbf{0x1c($\%$esp)}。
 	
+	\item		
+	
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_4_part_1.asm}
 	读入后，将n与0比较，如果$n \le 0$炸弹就会爆炸。
 	
 	因此，我们得到了第一个限制条件： $n > 0$
+
+	\item	
 	
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_4_part_2.asm}
 	随后，将n作为参数传入函数\textbf{func4}中。
 	
-	%一段代码
+	\item
+		
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_4_part_3.asm}
 	
 	这段代码表示，如果函数的返回值不为\textbf{0x41a7},则炸弹爆炸。
 	
 	这样就知道了第四关的要求：找出使\textbf{func4}的结果为\textbf{0x41a7}的输入值。
 	
+	\item
+		
 	于是我们开始研究\textbf{func4}函数。
 	
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/fun_4.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/fun_4.asm}
 	
 	分析这一个函数，可以得出它的作用如下：
 	
@@ -39,6 +47,8 @@
 	\lstinputlisting{sources/fun4.txt}
 	
 	因此，我们的问题变成：$\log_7(0x41a7)$ = ?
+
+	\end{itemize}
 	
 	经过计算得出，$7 ^ 5 = 16807 = 0x41a7$
 	

@@ -2,10 +2,7 @@
 	\begin{itemize}
 	\item	
 	第一关的汇编代码如下：
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_1.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_1.asm}
 
 	\item	
 	这个函数较短，分析发现，它调用了一个名为\textbf{strings$\_$not$\_$equal}函数。
@@ -28,10 +25,8 @@
 	于是现在的问题是找出存放在地址0x80499ec中的字符串。
 	
 	从调用strings$\_$not$\_$equal的语句向上看：
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_1_part_0.png}	
-	\end{figure}
+	
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_1_part_1.asm}
 	
 	这表示，这个函数的两个参数，一个是程序自身地址\textbf{0x80499ec}，另一个\textbf{0x20(\%esp)}就是我们的输入参数。
 	

@@ -2,10 +2,9 @@
 	\begin{itemize}
 	\item
 	第二关的汇编代码如下：
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_2.png}
-	\end{figure}
+	
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_2.asm}
+
 	
 	\item
 	我们首先发现，它调用了一个\textbf{read$\_$six$\_$numbers}函数。经过分析，这个函数从输入中读入六个整数，并按地址从低到高存放在\textbf{0x18($\%$esp) - (0x30$\%$esp)}这24个字节中。也就是说，\textbf{a[0]}在\textbf{0x18($\%$esp)}，\textbf{a[1]}在\textbf{0x1c($\%$esp)}，以此类推。
@@ -13,10 +12,8 @@
 	\item
 	然后观察下面一段代码：
 	
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_2_part_0.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_2_part_1.asm}
+
 	
 	\item
 	这段代码将\textbf{0x18($\%$esp)}即\textbf{a[0]}与$1$进行比较，如果不等则炸弹爆炸。这一段说明，我们输入的第一个数必须为1。
@@ -24,10 +21,8 @@
 	\item
 	接下来是一个循环：
 
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_2_part_1.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_2_part_2.asm}
+
 		
 	这个循环的循环变量是\textbf{$\%$ebx}，从2循环到 5。同时， \textbf{$\%$eax}始终为
 \textbf{$\%$ebx - 1}

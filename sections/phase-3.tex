@@ -2,10 +2,8 @@
 	\begin{itemize}
 	\item
 	第三关的汇编代码如下：
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.73]{images/phase_3.png}
-	\end{figure}
+	
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_3.asm}
 	
 	\newpage
 
@@ -32,20 +30,15 @@
 	输入的两个整数\textbf{a b}存放在\textbf{0x18($\%$esp)} 和 \textbf{0x1c($\%$esp)}中。接着往下看程序：
 		
 		
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_3_part_1.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_3_part_1.asm}
 
 	这里可以发现，程序将\textbf{0x18($\%$esp)}， 即输入的第一个整数\textbf{a}与7进行比较，如果大于7则炸弹爆炸。同时，由于使用的是\textbf{ja}命令，即\textbf{a}为无符号数，\textbf{a}应该不小于0
 	
 	这样我们可以得出第一个限制条件：输入的第一个	整数 $0 \le a \le 7$
 	
 	继续往下看，注意到这一段：	
-	\begin{figure}[H]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_3_part_2.png}
-	\end{figure}
+	
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_3_part_2.asm}
 
 	\item
 	这段具有很明显的\textbf{switch}语句的特征，而跳转表存放在\textbf{0x8049a5c}中。
@@ -58,10 +51,7 @@
 	
 	这样可以将接下来的代码划分模块：	
 	
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_3_part_4.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_3_part_4.asm}
 	
 	\item
 	于是可以得出对应的c语言代码：
@@ -75,10 +65,7 @@
 	\item
 	在switch语句段后，有这么一段：
 	
-	\begin{figure}[h]
-		\centering
-			\includegraphics[scale=0.77]{images/phase_3_part_5.png}
-	\end{figure}
+	\lstinputlisting[language={[x86masm]Assembler}]{sources/phase_3_part_5.asm}
 	
 	这里给出了第二个限制条件： 输入的第一个整数$a \le 5$
 	
