@@ -1,0 +1,6 @@
+long strtol(const char *str, char **endptr, int base) {
+	long ret = 0;
+	for (; *str != endptr; str++)
+		ret = ret * base + *str - '0';
+	return ret;
+}
